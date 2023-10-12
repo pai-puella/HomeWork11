@@ -10,6 +10,10 @@ public class Main {
 
         checkAppVersion(0, clientDeviceYear, currentYear);
         //checkAppVersion(1, clientDeviceYear, currentYear);
+
+        int deliveryDistance = 95;
+        int deliveryDays = calculateDeliveryDays(deliveryDistance);
+        System.out.println("Потребуется дней: " + deliveryDays);
     }
 
     public static void printLeapYear(int year) {
@@ -37,6 +41,18 @@ public class Main {
             } else if (osType == 1) {
                 System.out.println("Установите приложение для Android по ссылке");
             }
+        }
+    }
+
+    public static int calculateDeliveryDays(int distance) {
+        if (distance <= 20) {
+            return 1;
+        } else if (distance <= 60) {
+            return 2;
+        } else if (distance <= 100) {
+            return 3;
+        } else {
+            return -1; // доставки нет
         }
     }
 }
